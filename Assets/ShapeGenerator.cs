@@ -10,7 +10,7 @@ public class ShapeGenerator
     public ShapeGenerator(ShapeSettings settings) {
 
         this.settings = settings;
-        this.noiseFilter = new NoiseFilter();
+        this.noiseFilter = new NoiseFilter(settings.noiseSettings);
     }
 
     public Vector3 CalculatePointOnPlanet(Vector3 pointOnUnitSphere) {
