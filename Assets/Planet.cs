@@ -5,15 +5,18 @@ using UnityEngine;
 public class Planet : MonoBehaviour
 {
     [Range(2, 256)]
-    public int resolution = 10;
+    public int resolution = 10; //pour modifier la "qualité" de la planète
     public bool autoUpdate;
 
-    public ShapeSettings shapeSettings;
-    public ColourSettings colourSettings;
+    public ShapeSettings shapeSettings; //paramètres de forme (rayon)
+    public ColourSettings colourSettings; //paramètres de couleurs
     [HideInInspector]
+
+    //juste pour savoir si la flèche du menu de modification est ouverte ou non
     public bool shapeSettingsFoldout;
     [HideInInspector]
     public bool colourSettingsFoldout;
+
     ShapeGenerator shapeGenerator;
 
     [SerializeField, HideInInspector]
@@ -38,7 +41,7 @@ public class Planet : MonoBehaviour
     public void OnColourSettingsUpdated() {
 
         if (autoUpdate) {
-            
+
             Initialize();
             GenerateColours();
         }

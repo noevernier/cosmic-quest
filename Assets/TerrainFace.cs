@@ -25,6 +25,7 @@ public class TerrainFace
         axisB = Vector3.Cross(localUp, axisA);
     }
 
+    //des maths pour générer la planète (il utilise des polygones pour générer la sphère)
     public void ConstructMesh() {
 
         Vector3[] vertices = new Vector3[resolution * resolution];

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+/* 
+class pour pouvoir modifier les paramètres dans la fenêtre Inspector
+on ne peut pas utiliser directement SerializeField sur nos settings car ils n'ont
+pas de type connu (style int ...)
+*/
+
 [CustomEditor(typeof(Planet))]
 public class PlanetEditor : Editor
 {
