@@ -22,6 +22,7 @@ public class Planet : MonoBehaviour
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
+    MeshCollider[] meshColliders;
 
     public void GeneratePlanet() {
 
@@ -91,4 +92,5 @@ public class Planet : MonoBehaviour
             m.GetComponent<MeshRenderer>().sharedMaterial.color = colourSettings.planetColor;
         }
     }
+
 }
