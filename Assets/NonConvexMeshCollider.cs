@@ -132,7 +132,7 @@ public class NonConvexMeshCollider : MonoBehaviour
     private static GameObject CreateColliderChildGameObject(GameObject go, MeshFilter meshFilter)
     {
         //ensure collider child gameobject exists
-        var collidersTransform = go.transform.FindChild("Colliders");
+        var collidersTransform = go.transform.Find("Colliders");
         GameObject collidersGo;
         if (collidersTransform != null)
             collidersGo = collidersTransform.gameObject;
