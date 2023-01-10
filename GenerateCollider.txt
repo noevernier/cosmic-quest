@@ -1,0 +1,2 @@
+L'idée c'est de mettre un Raycast autour du joueur de forme sphérique. On va avoir tout les points de la planètes dans le tableau vertices. Dans la fonction Update() on regarde
+si chaque point est dans le Raycast. Si oui, on essaye de générer les MeshCollider avec les points qui permettent de former des triangles.
