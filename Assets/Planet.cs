@@ -7,12 +7,14 @@ public class Planet : MonoBehaviour
     [Range(2, 256)]
     public int resolution = 10; //pour modifier la "qualité" de la planète
     public bool autoUpdate;
+    public enum FaceRenderMask {All, Top, Bottom, Left, Right, Front, Back};
+    public FaceRenderMask faceRenderMask;
 
     public ShapeSettings shapeSettings; //paramètres de forme (rayon)
     public ColourSettings colourSettings; //paramètres de couleurs
-    [HideInInspector]
 
     //juste pour savoir si la flèche du menu de modification est ouverte ou non
+    [HideInInspector]
     public bool shapeSettingsFoldout;
     [HideInInspector]
     public bool colourSettingsFoldout;
@@ -74,14 +76,20 @@ public class Planet : MonoBehaviour
             }
 
             terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
+            bool renderFace = faceRenderMask == FaceRenderMask.All || (int)faceRenderMask - 1 == i;
+            meshFilters[i].gameObject.SetActive(renderFace);
         }
     
         }
 
     void GenerateMesh() {
 
-        foreach (TerrainFace face in terrainFaces) {
-            face.ConstructMesh();
+        for (int i = 0; i < 6; i++)
+        {
+            if (meshFilters[i].gameObject.activeSelf) {
+                
+                terrainFaces[i].ConstructMesh();
+            }
         }
     }
 
